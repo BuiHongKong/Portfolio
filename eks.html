@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <script>
         tailwind.config = {
             darkMode: "class",
@@ -58,23 +59,24 @@
                     Back to Portfolio
                 </a>
                 <h1 class="font-display text-5xl lg:text-8xl font-extrabold tracking-tighter leading-none text-charcoal dark:text-white uppercase mt-6 mb-8">
-                    Multi-Cloud<br/><span class="text-primary">K8s Mesh</span>
+                    Zero-Secret<br/><span class="text-primary">EKS Platform</span>
                 </h1>
-                <div class="flex flex-wrap gap-10 border-t border-gray-200 dark:border-gray-800 pt-10 mt-10">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 border-t border-gray-200 dark:border-gray-800 pt-10 mt-10">
                     <div>
                         <span class="block font-mono text-xs text-primary uppercase tracking-[0.3em] mb-2">Role</span>
-                        <span class="font-bold text-sm text-charcoal dark:text-white uppercase tracking-wide">[Your Role]</span>
+                        <span class="font-bold text-sm text-charcoal dark:text-white uppercase tracking-wide">Cloud / DevOps Engineer</span>
                     </div>
                     <div>
-                        <span class="block font-mono text-xs text-primary uppercase tracking-[0.3em] mb-2">Timeline</span>
-                        <span class="font-bold text-sm text-charcoal dark:text-white uppercase tracking-wide">[Duration]</span>
+                        <span class="block font-mono text-xs text-primary uppercase tracking-[0.3em] mb-2">Context</span>
+                        <span class="font-bold text-sm text-charcoal dark:text-white uppercase tracking-wide">Personal Infrastructure</span>
                     </div>
                     <div>
                         <span class="block font-mono text-xs text-primary uppercase tracking-[0.3em] mb-2">Stack</span>
-                        <div class="flex flex-wrap gap-2 mt-1">
-                            <span class="px-3 py-1 bg-charcoal text-white dark:bg-white dark:text-charcoal text-xs font-bold tracking-widest uppercase">Kubernetes</span>
-                            <span class="px-3 py-1 bg-charcoal text-white dark:bg-white dark:text-charcoal text-xs font-bold tracking-widest uppercase">Terraform</span>
-                            <span class="px-3 py-1 bg-charcoal text-white dark:bg-white dark:text-charcoal text-xs font-bold tracking-widest uppercase">AWS/GCP</span>
+                        <div class="flex flex-wrap items-center gap-4 mt-2">
+                            <i class="devicon-kubernetes-plain colored text-3xl hover:scale-110 transition-transform cursor-pointer drop-shadow-sm" title="Kubernetes"></i>
+                            <i class="devicon-terraform-plain colored text-3xl hover:scale-110 transition-transform cursor-pointer drop-shadow-sm" title="Terraform"></i>
+                            <i class="devicon-amazonwebservices-plain-wordmark colored text-4xl hover:scale-110 transition-transform cursor-pointer drop-shadow-sm" title="AWS"></i>
+                            <i class="devicon-argocd-plain colored text-3xl hover:scale-110 transition-transform cursor-pointer drop-shadow-sm" title="Argo CD"></i>
                         </div>
                     </div>
                 </div>
@@ -89,48 +91,52 @@
                     <!-- Main -->
                     <div class="lg:col-span-8 space-y-16">
                         <!-- Hero image -->
-                        <div class="aspect-video bg-gray-200 dark:bg-charcoal rounded-3xl relative shadow-2xl overflow-hidden">
-                            <div class="absolute inset-0 flex items-center justify-center text-gray-400 font-mono text-sm italic">[Project Overview Image Placeholder]</div>
+                        <div class="aspect-video bg-gradient-to-br from-charcoal to-gray-900 rounded-3xl relative shadow-2xl overflow-hidden flex flex-col items-center justify-center border border-gray-800 group">
+                            <div class="absolute inset-0 opacity-[0.1]" style="background-image: radial-gradient(#8DA291 2px, transparent 2px); background-size: 40px 40px;"></div>
+                            <span class="material-icons text-7xl text-primary mb-4 drop-shadow-lg transform group-hover:scale-110 transition-transform duration-500">cloud_done</span>
+                            <span class="font-display text-2xl font-bold tracking-widest text-white uppercase text-center px-4">GitOps Platform<br/><span class="text-primary text-sm tracking-[0.3em] mt-2 block">AWS EKS Architecture</span></span>
                         </div>
 
                         <!-- Problem -->
                         <section>
                             <h2 class="font-display text-3xl font-extrabold tracking-tighter text-charcoal dark:text-white uppercase mb-6">The Problem</h2>
-                            <p class="text-lg text-charcoal-light dark:text-gray-400 leading-loose">[Placeholder: Describe the challenge this project addressed. What was breaking or missing? What was the business or technical impact?]</p>
+                            <p class="text-lg text-charcoal-light dark:text-gray-400 leading-loose mb-6">Traditional cloud infrastructure often suffers from "ClickOps" manual configuration and convoluted developer onboarding. However, the most critical vulnerability is usually secret management. CI/CD pipelines typically rely on storing long-lived, static credentials (like <code class="text-sm font-mono bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-primary">AWS_ACCESS_KEY_ID</code>) as repository secrets to deploy applications. If these secrets are compromised, they grant persistent, unauthorized access to the cloud environment.</p>
+                            <p class="text-lg text-charcoal-light dark:text-gray-400 leading-loose">The challenge was to architect a production-grade Kubernetes environment that inherently eliminates this risk. The goal was a true "zero-secret" deployment lifecycle where CI/CD runners and in-cluster workloads never use static keys, relying entirely on ephemeral, dynamically minted tokens mapped directly to identities.</p>
                         </section>
 
                         <!-- Approach -->
                         <section>
                             <h2 class="font-display text-3xl font-extrabold tracking-tighter text-charcoal dark:text-white uppercase mb-6">The Approach</h2>
-                            <p class="text-lg text-charcoal-light dark:text-gray-400 leading-loose mb-8">[Placeholder: Walk through your thinking. Why did you choose this architecture? What alternatives did you consider?]</p>
-                            <div class="aspect-video bg-gray-200 dark:bg-charcoal rounded-2xl relative shadow-lg overflow-hidden">
-                                <div class="absolute inset-0 flex items-center justify-center text-gray-400 font-mono text-sm italic">[Architecture Diagram Placeholder]</div>
+                            <p class="text-lg text-charcoal-light dark:text-gray-400 leading-loose mb-8">Leveraging a "Pull-based" GitOps model with Argo CD ensures the cluster state is always synchronized with Git. The entire AWS footprint is managed via modular Terraform. To achieve a zero-trust posture, I implemented a Zero-Secret CI pipeline using GitHub OIDC and EKS Pod Identity to establish dynamic, identity-based trust, eliminating the need to store AWS access keys.</p>
+                            <div class="w-full overflow-x-auto rounded-3xl">
+                                <iframe src="diagram-eks.html" title="EKS Architecture Diagram" class="w-full min-w-[768px] h-[590px] border-none overflow-hidden block" scrolling="no"></iframe>
                             </div>
                         </section>
 
                         <!-- Implementation -->
-                        <section>
+                        <section class="!mt-2">
                             <h2 class="font-display text-3xl font-extrabold tracking-tighter text-charcoal dark:text-white uppercase mb-6">Implementation</h2>
-                            <p class="text-lg text-charcoal-light dark:text-gray-400 leading-loose mb-6">[Placeholder: Break down the key technical steps. Specific configs, scripts, tools, patterns that made it work.]</p>
-                            <p class="text-lg text-charcoal-light dark:text-gray-400 leading-loose">[Placeholder: Challenges encountered and how you solved them.]</p>
+                            <p class="text-lg text-charcoal-light dark:text-gray-400 leading-loose mb-6">The infrastructure was codified entirely in Terraform, establishing a secure VPC with private subnets and NAT gateways. The EKS v1.35 control plane was configured for private access. For continuous delivery, I deployed Argo CD as the platform's "brain", continuously reconciling declarative state stored in a dedicated GitOps repository.</p>
+                            <p class="text-lg text-charcoal-light dark:text-gray-400 leading-loose mb-6">To streamline developer workflows, I engineered standardized Helm chart templates to construct Argo CD applications. This approach cleanly separates staging and production environments by leveraging environment-specific values files. This architecture guarantees consistency across stages and enables immediate, highly reliable rollbacks in the event of a deployment failure.</p>
+                            <p class="text-lg text-charcoal-light dark:text-gray-400 leading-loose">A major focus was automating ingress and security. The AWS Load Balancer Controller provisions ALBs dynamically from Kubernetes Ingress objects, handling SSL via ACM. Security was locked down by integrating GitHub Actions with AWS via OIDC for short-lived CI tokens, and mapping IAM roles directly to ServiceAccounts using EKS Pod Identity.</p>
                         </section>
 
                         <!-- Results -->
                         <section>
                             <h2 class="font-display text-3xl font-extrabold tracking-tighter text-charcoal dark:text-white uppercase mb-6">Results</h2>
-                            <p class="text-lg text-charcoal-light dark:text-gray-400 leading-loose mb-10">[Placeholder: What changed after this shipped? Specific outcomes — deployment frequency, incident reduction, cost savings, etc.]</p>
+                            <p class="text-lg text-charcoal-light dark:text-gray-400 leading-loose mb-10">The result is a highly secure, multi-tenant Kubernetes platform that reduces developer onboarding time to under 5 minutes. By eliminating static secrets and manual configuration, the platform achieves a zero-trust CI/CD posture and ensures reproducible, drift-proof infrastructure through strict GitOps practices.</p>
                             <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
                                 <div class="border-l-2 border-primary pl-6 py-2">
-                                    <span class="block font-display text-4xl font-extrabold text-charcoal dark:text-white mb-1">[X]%</span>
-                                    <span class="text-xs font-mono font-bold text-primary uppercase tracking-[0.2em]">[Metric Label]</span>
+                                    <span class="block font-display text-4xl font-extrabold text-charcoal dark:text-white mb-1">100%</span>
+                                    <span class="text-xs font-mono font-bold text-primary uppercase tracking-[0.2em]">IaC Coverage</span>
                                 </div>
                                 <div class="border-l-2 border-primary pl-6 py-2">
-                                    <span class="block font-display text-4xl font-extrabold text-charcoal dark:text-white mb-1">[X]x</span>
-                                    <span class="text-xs font-mono font-bold text-primary uppercase tracking-[0.2em]">[Metric Label]</span>
+                                    <span class="block font-display text-4xl font-extrabold text-charcoal dark:text-white mb-1">0</span>
+                                    <span class="text-xs font-mono font-bold text-primary uppercase tracking-[0.2em]">Static Secrets</span>
                                 </div>
                                 <div class="border-l-2 border-primary pl-6 py-2">
-                                    <span class="block font-display text-4xl font-extrabold text-charcoal dark:text-white mb-1">[X]h</span>
-                                    <span class="text-xs font-mono font-bold text-primary uppercase tracking-[0.2em]">[Metric Label]</span>
+                                    <span class="block font-display text-4xl font-extrabold text-charcoal dark:text-white mb-1">&lt;5m</span>
+                                    <span class="text-xs font-mono font-bold text-primary uppercase tracking-[0.2em]">App Onboarding</span>
                                 </div>
                             </div>
                         </section>
@@ -144,15 +150,11 @@
                                 <ul class="space-y-6">
                                     <li>
                                         <span class="block font-mono text-xs text-primary uppercase tracking-[0.3em] mb-2">Client / Context</span>
-                                        <span class="font-semibold text-sm text-charcoal dark:text-gray-200">[Placeholder]</span>
-                                    </li>
-                                    <li>
-                                        <span class="block font-mono text-xs text-primary uppercase tracking-[0.3em] mb-2">Timeline</span>
-                                        <span class="font-semibold text-sm text-charcoal dark:text-gray-200">[Placeholder]</span>
+                                        <span class="font-semibold text-sm text-charcoal dark:text-gray-200">Personal Infrastructure Showcase</span>
                                     </li>
                                     <li>
                                         <span class="block font-mono text-xs text-primary uppercase tracking-[0.3em] mb-2">My Role</span>
-                                        <span class="font-semibold text-sm text-charcoal dark:text-gray-200">[Placeholder]</span>
+                                        <span class="font-semibold text-sm text-charcoal dark:text-gray-200">Lead Architect & Engineer</span>
                                     </li>
                                     <li>
                                         <span class="block font-mono text-xs text-primary uppercase tracking-[0.3em] mb-3">Technologies</span>
@@ -160,6 +162,7 @@
                                             <span class="px-3 py-1 bg-primary/10 text-charcoal dark:text-gray-200 text-xs font-bold tracking-widest uppercase rounded-full">Kubernetes</span>
                                             <span class="px-3 py-1 bg-primary/10 text-charcoal dark:text-gray-200 text-xs font-bold tracking-widest uppercase rounded-full">Terraform</span>
                                             <span class="px-3 py-1 bg-primary/10 text-charcoal dark:text-gray-200 text-xs font-bold tracking-widest uppercase rounded-full">AWS</span>
+                                            <span class="px-3 py-1 bg-primary/10 text-charcoal dark:text-gray-200 text-xs font-bold tracking-widest uppercase rounded-full">Helm</span>
                                             <span class="px-3 py-1 bg-primary/10 text-charcoal dark:text-gray-200 text-xs font-bold tracking-widest uppercase rounded-full">ArgoCD</span>
                                             <span class="px-3 py-1 bg-primary/10 text-charcoal dark:text-gray-200 text-xs font-bold tracking-widest uppercase rounded-full">Grafana</span>
                                         </div>
@@ -191,7 +194,7 @@
                     <span class="material-icons mr-2 text-base transform group-hover:-translate-x-2 transition-transform">arrow_back</span>
                     All Projects
                 </a>
-                <a href="project-beta.html" class="inline-flex items-center text-primary font-bold uppercase tracking-widest text-xs group">
+                <a href="retail-store.html" class="inline-flex items-center text-primary font-bold uppercase tracking-widest text-xs group">
                     Next Project
                     <span class="material-icons ml-2 text-base transform group-hover:translate-x-2 transition-transform">arrow_forward</span>
                 </a>
