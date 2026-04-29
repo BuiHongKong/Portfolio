@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Kong Bui</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"
@@ -61,12 +62,14 @@
 
 <body
     class="bg-background-light dark:bg-background-dark text-charcoal dark:text-gray-200 font-sans transition-colors duration-300 min-h-screen flex flex-col">
-    <nav class="bg-white dark:bg-charcoal py-6 shadow-sm relative z-10 w-full">
+    <nav class="bg-white dark:bg-charcoal py-2 shadow-md drop-shadow-sm border-b border-gray-100 dark:border-gray-800 relative z-10 w-full">
         <div class="container mx-auto px-6 lg:px-16 flex justify-between items-center">
-            <a href="home.html" class="flex flex-col hover:opacity-80 transition-opacity">
-                <span class="font-display text-2xl font-extrabold text-charcoal dark:text-white tracking-tighter">Bui Hong Kong</span>
-                <span
-                    class="text-[0.65rem] text-charcoal-light dark:text-gray-400 tracking-superwide uppercase mt-1 font-semibold">DevOps Engineer</span>
+            <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                <img src="small-icon.png" alt="Logo Icon" class="h-[5.5rem] w-auto object-contain">
+                <div class="flex flex-col">
+                    <span class="font-display text-2xl font-extrabold text-charcoal dark:text-white tracking-tighter">Bui Hong Kong</span>
+                    <span class="text-[0.65rem] text-charcoal-light dark:text-gray-400 tracking-superwide uppercase mt-1 font-semibold">DevOps Engineer</span>
+                </div>
             </a>
             <div class="hidden md:flex space-x-8 text-sm font-semibold tracking-superwide uppercase">
                 <a class="text-charcoal dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
@@ -93,8 +96,12 @@
                 back to you as soon as I can.
             </p>
 
-            <form
+            <form action="https://api.web3forms.com/submit" method="POST"
                 class="bg-white dark:bg-gray-800 p-8 lg:p-12 shadow-xl rounded-2xl border border-gray-200 dark:border-gray-700">
+                
+                <!-- Web3Forms Access Key -->
+                <input type="hidden" name="access_key" value="a31d2e4c-0497-4816-803a-8500757f4b05">
+                
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                     <div>
                         <label
@@ -102,7 +109,7 @@
                             for="name">Name</label>
                         <input
                             class="w-full bg-background-light dark:bg-gray-900 border border-gray-200 dark:border-gray-700 px-4 py-3 text-charcoal dark:text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary rounded-xl"
-                            id="name" type="text" placeholder="Jane Doe" required>
+                            id="name" name="name" type="text" placeholder="Jane Doe" required>
                     </div>
                     <div>
                         <label
@@ -110,7 +117,7 @@
                             for="email">Email</label>
                         <input
                             class="w-full bg-background-light dark:bg-gray-900 border border-gray-200 dark:border-gray-700 px-4 py-3 text-charcoal dark:text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary rounded-xl"
-                            id="email" type="email" placeholder="jane@example.com" required>
+                            id="email" name="email" type="email" placeholder="jane@example.com" required>
                     </div>
                 </div>
                 <div class="mb-8">
@@ -119,7 +126,7 @@
                         for="subject">Subject</label>
                     <input
                         class="w-full bg-background-light dark:bg-gray-900 border border-gray-200 dark:border-gray-700 px-4 py-3 text-charcoal dark:text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary rounded-xl"
-                        id="subject" type="text" placeholder="Project Inquiry" required>
+                        id="subject" name="subject" type="text" placeholder="Project Inquiry" required>
                 </div>
                 <div class="mb-10">
                     <label
@@ -127,7 +134,7 @@
                         for="message">Message</label>
                     <textarea
                         class="w-full bg-background-light dark:bg-gray-900 border border-gray-200 dark:border-gray-700 px-4 py-3 text-charcoal dark:text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary rounded-xl h-40 resize-y"
-                        id="message" placeholder="Tell me about your project..." required></textarea>
+                        id="message" name="message" placeholder="Tell me about your project..." required></textarea>
                 </div>
                 <button type="submit"
                     class="w-full bg-primary hover:bg-opacity-90 text-white font-bold px-8 py-4 tracking-superwide uppercase text-xs transition-all shadow-sm hover:shadow-md rounded-full">
@@ -136,38 +143,7 @@
             </form>
         </div>
     </main>
-    <footer
-        class="bg-background-light dark:bg-background-dark py-16 border-t border-gray-200 dark:border-gray-800 mt-auto">
-        <div class="container mx-auto px-6 lg:px-16 text-center">
-            <h2 class="font-display text-2xl font-extrabold tracking-tight mb-8 text-charcoal dark:text-white">Let's
-                build something together.</h2>
-            <div class="flex justify-center space-x-8 mb-10">
-                <a class="text-charcoal-light dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
-                    href="contact.html">
-                    <span class="sr-only">Contact</span>
-                    <span class="material-icons">email</span>
-                </a>
-                <a class="text-charcoal-light dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
-                    href="#">
-                    <span class="sr-only">LinkedIn</span>
-                    <span class="material-icons">link</span>
-                </a>
-                <a class="text-charcoal-light dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
-                    href="#">
-                    <span class="sr-only">GitHub</span>
-                    <span class="material-icons">code</span>
-                </a>
-                <a class="text-charcoal-light dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
-                    href="#">
-                    <span class="sr-only">Twitter</span>
-                    <span class="material-icons">chat</span>
-                </a>
-            </div>
-            <p class="text-xs font-medium tracking-widest uppercase text-charcoal-light dark:text-gray-500">
-                © 2026 Bui Hong Kong. All rights reserved.
-            </p>
-        </div>
-    </footer>
+
 </body>
 
 </html>
