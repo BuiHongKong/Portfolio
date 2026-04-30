@@ -13,6 +13,18 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <script>
+        function smoothScroll(event, targetId) {
+            event.preventDefault();
+            const target = document.getElementById(targetId);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    </script>
+    <script>
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -59,26 +71,28 @@
         }
 
         @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
 
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
-                transform: translateY(0);
-            }
-
-            40% {
-                transform: translateY(-10px);
-            }
-
-            60% {
-                transform: translateY(-5px);
-            }
+        @keyframes roll-down {
+            0% { transform: translateY(0); opacity: 1; }
+            45% { transform: translateY(15px); opacity: 0; }
+            55% { transform: translateY(-15px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
         }
 
         .animate-bounce-slow {
             animation: bounce 2s infinite;
+        }
+
+        .group:active .roll-icon {
+            animation: roll-down 0.6s cubic-bezier(0.45, 0, 0.55, 1);
+        }
+
+        .group:active .roll-text {
+            animation: roll-down 0.6s cubic-bezier(0.45, 0, 0.55, 1) 0.05s;
         }
     </style>
 </head>
@@ -235,10 +249,9 @@
 
             <!-- Scroll Down Arrow -->
             <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
-                <a href="#projects"
-                    class="flex flex-col items-center gap-2 text-charcoal-light dark:text-gray-400 hover:text-primary transition-colors group">
-                    <span class="text-[0.65rem] font-bold tracking-[0.3em] uppercase">Explore</span>
-                    <span class="material-icons animate-bounce-slow">expand_more</span>
+                <a href="#projects" onclick="smoothScroll(event, 'projects')" class="flex flex-col items-center gap-2 text-charcoal-light dark:text-gray-400 hover:text-primary transition-all duration-300 group">
+                    <span class="text-[0.65rem] font-bold tracking-[0.3em] uppercase roll-text">Explore</span>
+                    <span class="material-icons animate-bounce-slow roll-icon">expand_more</span>
                 </a>
             </div>
         </header>
@@ -359,49 +372,37 @@
                         <!-- Tech Art Item 1 -->
                         <div
                             class="aspect-square bg-gray-200 dark:bg-charcoal rounded-2xl relative overflow-hidden group shadow-xl">
-                            <div
-                                class="absolute inset-0 flex items-center justify-center text-gray-400 font-mono text-sm italic p-8 text-center">
-                                [Tech Art Placeholder 1: Procedural Landscapes]
-                            </div>
+                            <img src="assets/images/cable-system.png" alt="Procedural Systems Visualization" class="w-full h-full object-cover scale-110 brightness-95 transition-all duration-700 group-hover:scale-125 group-hover:brightness-100">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-charcoal to-transparent opacity-0 group-hover:opacity-60 transition-opacity">
                             </div>
                             <div
                                 class="absolute bottom-0 left-0 p-8 transform translate-y-full group-hover:translate-y-0 transition-transform">
-                                <span class="text-white font-display font-bold uppercase tracking-widest text-xs">P5.js
-                                    / WebGL</span>
+                                <span class="text-white font-display font-bold uppercase tracking-widest text-xs">Cable System</span>
                             </div>
                         </div>
                         <!-- Tech Art Item 2 -->
                         <div
                             class="aspect-square bg-gray-200 dark:bg-charcoal rounded-2xl relative overflow-hidden group shadow-xl">
-                            <div
-                                class="absolute inset-0 flex items-center justify-center text-gray-400 font-mono text-sm italic p-8 text-center">
-                                [Tech Art Placeholder 2: Shader Experiments]
-                            </div>
+                            <img src="assets/images/shader-work.png" alt="Shader Experiments Visualization" class="w-full h-full object-cover scale-110 brightness-95 transition-all duration-700 group-hover:scale-125 group-hover:brightness-100">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-charcoal to-transparent opacity-0 group-hover:opacity-60 transition-opacity">
                             </div>
                             <div
                                 class="absolute bottom-0 left-0 p-8 transform translate-y-full group-hover:translate-y-0 transition-transform">
-                                <span class="text-white font-display font-bold uppercase tracking-widest text-xs">GLSL /
-                                    Three.js</span>
+                                <span class="text-white font-display font-bold uppercase tracking-widest text-xs">Shader</span>
                             </div>
                         </div>
                         <!-- Tech Art Item 3 -->
                         <div
                             class="aspect-square bg-gray-200 dark:bg-charcoal rounded-2xl relative overflow-hidden group shadow-xl">
-                            <div
-                                class="absolute inset-0 flex items-center justify-center text-gray-400 font-mono text-sm italic p-8 text-center">
-                                [Tech Art Placeholder 3: Data Visualization]
-                            </div>
+                            <img src="assets/images/lightning strike-square.png" alt="Algorithmic Phenomena Visualization" class="w-full h-full object-cover brightness-95 transition-all duration-700 group-hover:scale-110 group-hover:brightness-100">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-charcoal to-transparent opacity-0 group-hover:opacity-60 transition-opacity">
                             </div>
                             <div
                                 class="absolute bottom-0 left-0 p-8 transform translate-y-full group-hover:translate-y-0 transition-transform">
-                                <span class="text-white font-display font-bold uppercase tracking-widest text-xs">D3.js
-                                    / SVG</span>
+                                <span class="text-white font-display font-bold uppercase tracking-widest text-xs">Character VFX</span>
                             </div>
                         </div>
                     </div>
@@ -409,8 +410,7 @@
                     <div class="mt-20 text-center">
                         <p
                             class="text-lg text-charcoal-light dark:text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-                            Where code meets creativity. Explore my collection of algorithmic art and interactive
-                            experiences that push the boundaries of the browser.
+                            Come have a look at my Tech-Arts.
                         </p>
                         <a href="tech-arts.html"
                             class="inline-flex items-center gap-3 border-2 border-primary text-primary font-bold px-10 py-4 uppercase tracking-widest text-xs rounded-2xl hover:bg-primary hover:text-white transition-all duration-300 hover:scale-105 group">
